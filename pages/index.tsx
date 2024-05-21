@@ -47,11 +47,9 @@ const Home: NextPage = () => {
       <main>
         <h1 className="text-3xl font-bold underline">Foxes images</h1>
         {/* tomamos la variable de estado images (array de objetos) y renderizamos con un map 
-        el componete RandomFox, al que pasamos props y daremos un padding de 4 (p-4) */}
+        el componete RandomFox, al que pasamos props*/}
         {images.map((image) => (
-          <div key={image.id} className="p-4">
-            <RandomFox image={image.url} alt={altImage} />
-          </div>
+          <RandomFox key={image.id} url={image.url} alt={altImage} />
         ))}
       </main>
 
