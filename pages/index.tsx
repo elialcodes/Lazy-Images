@@ -12,13 +12,26 @@ const Home: NextPage = () => {
 
   //constantes que pasaremos al componente RandomFox por Props:
 
-  //prop 1: creamos una variable de estado que tendrá un array de strings con 4 imagenes aleatorias
-  //añadimos al estado <string []> para asegurarnos que el seteo de la variable solo acepte array de strings
-  const [images, setImages] = useState<string[]>([
-    `https://randomfox.ca/images/${random()}.jpg`,
-    `https://randomfox.ca/images/${random()}.jpg`,
-    `https://randomfox.ca/images/${random()}.jpg`,
-    `https://randomfox.ca/images/${random()}.jpg`,
+  //prop 1:
+  //simulamos como vendrían los datos desde una api en la vida real, en formato array de objetos (con id, url...)
+  //como no tenemos id, lo generamos:
+
+  const generateId = (): string => {
+    return Math.random().toString(36).substr(2, 9);
+  };
+
+  //establecemos nuestro tipado para cada objeto:
+
+  type ImageType = { id: string; url: string };
+
+  //creamos una variable de estado que tendrá un array de 4 objetos aleatorios
+  //añadimos al estado <ImageType []> para asegurarnos que el seteo de la variable solo acepte array de objetos
+  //que tengan nuestro tipado
+  const [images, setImages] = useState<ImageType[]>([
+    { id: generateId(), url: `https://randomfox.ca/images/${random()}.jpg` },
+    { id: generateId(), url: `https://randomfox.ca/images/${random()}.jpg` },
+    { id: generateId(), url: `https://randomfox.ca/images/${random()}.jpg` },
+    { id: generateId(), url: `https://randomfox.ca/images/${random()}.jpg` },
   ]);
 
   //prop 2:
@@ -33,10 +46,11 @@ const Home: NextPage = () => {
 
       <main>
         <h1 className="text-3xl font-bold underline">Foxes images</h1>
-        {/* renderizamos con un map el componete RandomFox y sus props, le daremos un padding de 4 (p-4) */}
-        {images.map((image, index) => (
-          <div key={index} className="p-4">
-            <RandomFox image={image} alt={altImage} />
+        {/* tomamos la variable de estado images (array de objetos) y renderizamos con un map 
+        el componete RandomFox, al que pasamos props y daremos un padding de 4 (p-4) */}
+        {images.map((image) => (
+          <div key={image.id} className="p-4">
+            <RandomFox image={image.url} alt={altImage} />
           </div>
         ))}
       </main>
