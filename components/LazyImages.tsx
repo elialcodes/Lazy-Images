@@ -12,7 +12,7 @@ type Props = { key: string; url: string; alt: string };
 //no hay imagen hasta que se cargue el componente
 //creamos una variable de estado para la url de la imagen y su valor será una imagen transparente
 
-export const RandomFox = ({ key, url, alt }: Props): JSX.Element => {
+export const LazyImages = ({ key, url, alt }: Props): JSX.Element => {
   const node = useRef<HTMLImageElement>(null);
   const [src, setSrc] = useState(
     'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4='

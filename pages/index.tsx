@@ -2,7 +2,7 @@ import type { NextPage } from 'next'; //nos importamos este el tipado que nos da
 import type { MouseEventHandler } from 'react'; //nos importamos este tipado que nos da React para el evento onClick
 import { useState } from 'react';
 import Head from 'next/head';
-import { RandomFox } from '../components/RandomFox';
+import { LazyImages } from '../components/LazyImages';
 
 const Home: NextPage = () => {
   //vamos a obtener una foto aleatoria de una api con 123 fotos de zorros
@@ -11,7 +11,7 @@ const Home: NextPage = () => {
     return Math.floor(Math.random() * 123) + 1;
   };
 
-  //props que pasaremos al componente RandomFox:
+  //props que pasaremos al componente LazyImages:
 
   //prop 1:
   //simularemos como vendrían los datos desde una api en la vida real, en formato array de objetos (con id, url...)
@@ -58,9 +58,9 @@ const Home: NextPage = () => {
         <h1 className="text-3xl font-bold underline">Foxes images</h1>
         <button onClick={addNewFox}>Add new fox</button>
         {/* tomamos la variable de estado images (array de objetos) y con cada iteración
-        //de map renderizamos el componete RandomFox, al que pasamos props*/}
+        //de map renderizamos el componete LazyImages, al que pasamos props*/}
         {images.map((image) => (
-          <RandomFox key={image.id} url={image.url} alt={altImage} />
+          <LazyImages key={image.id} url={image.url} alt={altImage} />
         ))}
       </main>
 
