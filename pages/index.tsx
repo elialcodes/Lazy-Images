@@ -60,7 +60,12 @@ const Home: NextPage = () => {
         {/* tomamos la variable de estado images (array de objetos) y con cada iteración
         //de map renderizamos el componete LazyImages, al que pasamos props*/}
         {images.map((image) => (
-          <LazyImages key={image.id} url={image.url} alt={altImage} />
+          <LazyImages
+            key={image.id}
+            src={image.url}
+            alt={altImage}
+            onClick={() => console.log('hola')}
+          />
         ))}
       </main>
 
