@@ -34,11 +34,11 @@ const Home: NextPage = () => {
 
   //función manejadora para añadir una imagen cada vez que hacemos click en un botón:
   //en el archivo tsconfig.json, tenemos la librería "dom" instalada, así que sólo tenemos que hacer hover
-  //en el evento onClick donde llamamos a la función manejadora y ver qué tipado tenemos que poner,
-  //en este caso es MouseEventHandler<HTMLButtonElement>
-  //esto nos dice que el elemento botón del HTML espera un MouseEventHandler
+  //en el evento onClick donde llamamos a la función manejadora y ver qué tipado tenemos que poner
+  //en dicha función, en este caso es MouseEventHandler<HTMLButtonElement>,
+  //lo que nos dice que el elemento botón del HTML espera un MouseEventHandler
   //el tipado MouseEventHandler le importamos arriba, nos lo da la propia librería react
-  //a la constante newFoxImage le daremos el tipado que hemos diseñado
+  //y a la constante newFoxImage le daremos el tipado que hemos diseñado
   const addNewFox: MouseEventHandler<HTMLButtonElement> = () => {
     const newFoxImage: ImageType = {
       id: generateId(),
