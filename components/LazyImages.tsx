@@ -21,11 +21,11 @@ type ImageNativeType = ImgHTMLAttributes<HTMLImageElement>;
 type Props = LazyImageProps & ImageNativeType;
 
 //pasamos las props del componente padre con destructuring
-//y en ...ImgProps pasamos las props nativas de img con un spreed operatos a modo objeto
+//y en ...ImgProps pasamos las props nativas de img con un spreed operator a modo objeto
 //y le decimos que tendrán el tipado definido en Props
 //tipamos explícitamente que el retorno de la función será un elemento jsx
-//con useRef tomamos el elemento del DOM que queremos y lo inicializamos a null, porque
-//no hay imagen hasta que se cargue el componente
+//con useRef tomamos el elemento del DOM que queremos (sabemos cual es al hacer hover sobre éñ)
+//y lo inicializamos a null, porque no hay imagen hasta que se cargue el componente
 //creamos una variable de estado para la src actual de la imagen y su valor será una imagen transparente
 
 export const LazyImages = ({ key, src, alt, ...ImgProps }: Props): JSX.Element => {
@@ -61,12 +61,11 @@ export const LazyImages = ({ key, src, alt, ...ImgProps }: Props): JSX.Element =
     //cada foto será un div con un id único y un padding de 4
     <div key={key} className="p-4">
       <img
-        ref={node}
+        ref={node} //aquí pasamos las props del componente padre:
         src={currentSrc}
         alt={alt}
         {...ImgProps} //aquí pasamos todas las props nativas del elemento img por si nos hicieran falta
-        //pasamos props nativas de img, typescript no devuelve error porque ya están importados sus tipados:
-        width={320}
+        width={320} //aquí pasamos props nativas de img, typescript no devuelve error porque ya están importados sus tipados:
         height="auto"
         className="bg-gray-300"
       />

@@ -14,20 +14,17 @@ const Home: NextPage = () => {
   //props que pasaremos al componente LazyImages:
 
   //prop 1:
-  //simularemos como vendrían los datos desde una api en la vida real, en formato array de objetos (con id, url...)
+  //simularemos como vendrían los datos desde una api en la vida real,
+  //en formato array de objetos (con id, url...)
   //como no tenemos id, lo generamos:
 
   const generateId = (): string => {
     return Math.random().toString(36).substr(2, 9);
   };
 
-  //establecemos nuestro tipado para cada objeto del array que nos devolvería la api
-
-  type ImageType = { id: string; url: string };
-
-  //creamos una variable de estado y añadimos al estado <ImageType []> para asegurarnos
-  //que el seteo de la variable solo acepte dentro del array objetos que tengan nuestro tipado
-  const [images, setImages] = useState<ImageType[]>([]);
+  //creamos una variable de estado y añadimos al estado global <IImageType []> para asegurarnos
+  //que el seteo de la variable será un array de objetos los cuales tendrán nuestro tipado
+  const [images, setImages] = useState<IImageType[]>([]);
 
   //prop 2:
   const altImage: string = 'Fox image';
@@ -40,7 +37,7 @@ const Home: NextPage = () => {
   //el tipado MouseEventHandler le importamos arriba, nos lo da la propia librería react
   //y a la constante newFoxImage le daremos el tipado que hemos diseñado
   const addNewFox: MouseEventHandler<HTMLButtonElement> = () => {
-    const newFoxImage: ImageType = {
+    const newFoxImage: IImageType = {
       id: generateId(),
       url: `https://randomfox.ca/images/${random()}.jpg`,
     };
