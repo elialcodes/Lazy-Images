@@ -7,6 +7,7 @@ import { useRef, useEffect, useState } from 'react';
 //react ya tiene importada la librería del DOM, donde cada elemento del DOM tiene
 //intrínsecamente unos atributos nativos (unas Props nativas) para trabajar con ellos
 //nos importamos este tipado que nos da React para traernos los tipos nativos del elemento img
+//(al hacer hover sobre img obtenemos ImgHTMLAttributes)
 import type { ImgHTMLAttributes } from 'react';
 
 //las props que recibe un componene siempre son un objeto
@@ -61,11 +62,15 @@ export const LazyImages = ({ key, src, alt, ...ImgProps }: Props): JSX.Element =
     //cada foto será un div con un id único y un padding de 4
     <div key={key} className="p-4">
       <img
-        ref={node} //aquí pasamos las props del componente padre:
+        //aquí pasamos las props relacionadas con el useRef:
+        ref={node}
+        //aquí pasamos las props relacionadas con el componente padre:
         src={currentSrc}
         alt={alt}
-        {...ImgProps} //aquí pasamos todas las props nativas del elemento img por si nos hicieran falta
-        width={320} //aquí pasamos props nativas de img, typescript no devuelve error porque ya están importados sus tipados:
+        //aquí pasamos todas las props nativas del elemento img por si nos hicieran falta más adelante:
+        {...ImgProps}
+        //aquí pasamos props nativas de img que nos interesan, typescript no devuelve error porque ya están importados sus tipados:
+        width={320}
         height="auto"
         className="bg-gray-300"
       />
