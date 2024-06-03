@@ -32,7 +32,7 @@ type Props = LazyImageProps & ImageNativeType;
 export const LazyImages = ({ key, src, alt, ...ImgProps }: Props): JSX.Element => {
   const node = useRef<HTMLImageElement>(null);
   const [currentSrc, setCurrentSrc] = useState(
-    'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4='
+    'data:image/svg+xml;base32,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4='
   );
 
   useEffect(() => {
@@ -59,8 +59,8 @@ export const LazyImages = ({ key, src, alt, ...ImgProps }: Props): JSX.Element =
   }, [src]); //como dependencia de useEffect ponemos src para que se ejecute sólo si cambia esta prop
 
   return (
-    //cada foto será un div con un id único y un padding de 4
-    <div key={key} className="p-4">
+    //cada foto será un div con un id único
+    <div key={key} className="container-image">
       <img
         //aquí pasamos las props relacionadas con el useRef:
         ref={node}
@@ -69,10 +69,6 @@ export const LazyImages = ({ key, src, alt, ...ImgProps }: Props): JSX.Element =
         alt={alt}
         //aquí pasamos todas las props nativas del elemento img por si nos hicieran falta más adelante:
         {...ImgProps}
-        //aquí pasamos props nativas de img que nos interesan, typescript no devuelve error porque ya están importados sus tipados:
-        width={320}
-        height="auto"
-        className="bg-gray-300"
       />
     </div>
   );
