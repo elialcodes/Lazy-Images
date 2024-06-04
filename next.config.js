@@ -13,11 +13,14 @@
 // module.exports = nextConfig;
 
 // next.config.js
+const isProd = process.env.NODE_ENV === 'production';
+
 module.exports = {
   output: 'export',
   distDir: 'out',
-  assetPrefix: './',
+  assetPrefix: isProd ? './' : '',
   images: {
     unoptimized: true,
   },
+  trailingSlash: true, // Esto ayuda a manejar rutas y archivos correctamente en GitHub Pages
 };
