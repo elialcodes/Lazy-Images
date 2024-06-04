@@ -4,6 +4,12 @@ import { useState } from 'react';
 import Head from 'next/head';
 import { LazyImages } from '../components/LazyImages';
 
+export const getStaticProps = async () => {
+  return {
+    props: {}, // Pasar las props necesarias a la página
+  };
+};
+
 const Home: NextPage = () => {
   //vamos a obtener una foto aleatoria de una api con 123 fotos de zorros
   //generamos una función que nos devuelva un número aleatorio del 1 al 123:
