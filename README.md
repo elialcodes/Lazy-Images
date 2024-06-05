@@ -10,7 +10,9 @@ If we click the “Add fox” button several times and open the Console/Elements
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-First, run the development server:
+Clone the repository: https://github.com/elialcodes/Lazy-Images.git
+
+Run the development server:
 
 ```bash
 npm run dev
