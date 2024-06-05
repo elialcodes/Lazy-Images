@@ -6,6 +6,8 @@ With this exercise I learned how to use the hook useRef and the methods of the w
 
 If we click the “Add fox” button several times and open the Console/Elements, we can see that in those images the “src” attribute will be an empty rectangle until they appear in the viewport, which will be when the “src” attribute changes to the url provided by the api.
 
+![alt text](lazy-images.png)
+
 ## Getting Started :book: :blush: :pencil:
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
@@ -33,7 +35,7 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel 💻 
+## Deploy on Vercel 💻
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
