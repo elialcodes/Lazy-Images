@@ -1,12 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started :book: :blush: :pencil: :star:
+# Lazy Images
 
 Simple lazy images exercise with Next.js, React.js and TypeScript that consists of making calls to an external api and loading random images of foxes.
 
 With this exercise I learned how to use the hook useRef and the methods of the window object. The purpose of lazy images is that images are not rendered until they appear in the user's viewport, which improves page performance.
 
 If we click the “Add fox” button several times and open the Console/Elements, we can see that in those images the “src” attribute will be an empty rectangle until they appear in the viewport, which will be when the “src” attribute changes to the url provided by the api.
+
+## Getting Started :book: :blush: :pencil: :star:
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 
