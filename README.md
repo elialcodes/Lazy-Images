@@ -1,4 +1,4 @@
-# Lazy Images
+# Lazy Images :herb: :cat: :mushroom: :cat:
 
 Simple lazy images exercise with Next.js, React.js and TypeScript that consists of making calls to an external api and loading random images of foxes.
 
